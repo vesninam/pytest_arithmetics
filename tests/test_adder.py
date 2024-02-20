@@ -13,3 +13,7 @@ def test_add_numbers():
 def test_add_strings():
     with pytest.raises(ValueError):
         add_numbers("a", "b")
+
+def test_add_numbers_with_fixture(adder_devider_data):
+    for a, b, result, _ in adder_devider_data:
+        assert add_numbers(a, b) == result
